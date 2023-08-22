@@ -27,8 +27,7 @@
     }
   ],
   "require": {
-    "php": ">=8.0",
-    "ext-json": "*",
+    "php": ">=7.2",
     "league/html-to-markdown": "^5.1"
   },
   "require-dev": {
