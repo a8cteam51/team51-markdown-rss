@@ -9,7 +9,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="wpcomsp-team51-markdown-rss"/>
+				<element value="wpcomsp-markdown-rss"/>
 			</property>
 		</properties>
 	</rule>

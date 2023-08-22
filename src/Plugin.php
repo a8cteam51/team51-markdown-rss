@@ -101,11 +101,11 @@ class Plugin {
 
 		$converter = new HtmlConverter(
 			array(
-				'strip_tags' => true
+				'strip_tags' => true,
 			)
 		);
 
-		printf( '<source:markdown><![CDATA[%s]]></source:markdown>', $converter->convert( $content ) );
+		printf( '<source:markdown><![CDATA[%s]]></source:markdown>', $converter->convert( $content ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	// endregion

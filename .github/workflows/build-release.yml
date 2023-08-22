@@ -15,10 +15,7 @@ jobs:
         run: composer validate --strict
 
       - name: Install dependencies
-        run: |
-          composer run-script packages-install -- --no-dev
-          npm ci
-          npm run build
+        run: composer run-script packages-install -- --no-dev
 
       - name: Zip Folder
         run: zip -r ${{ github.event.repository.name }}.zip . -x ".git/*" ".github/*" "node_modules/*" ".gitignore" ".editorconfig" ".phpcs.xml" "composer.json" "composer.lock" "package.json" "package-lock.json"
