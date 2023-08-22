@@ -1,0 +1,36 @@
+# Copyright (C) 2023 WordPress.com Special Projects
+# This file is distributed under the GPL v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Markdown RSS 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/team51-markdown-rss\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-08-22T16:27:25+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: wpcomsp-markdown-rss\n"
+
+#. Plugin Name of the plugin
+msgid "Markdown RSS"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "https://wpspecialprojects.wordpress.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "Adds the element source:markdown to the RSS feed."
+msgstr ""
+
+#. Author of the plugin
+msgid "WordPress.com Special Projects"
+msgstr ""
+
+#: wpcomsp-markdown-rss.php:55
+msgid "It seems like <strong>Markdown RSS</strong> is corrupted. Please reinstall!"
+msgstr ""

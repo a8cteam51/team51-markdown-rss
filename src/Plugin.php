@@ -2,6 +2,8 @@
 
 namespace WPCOMSpecialProjects\MarkdownRSS;
 
+use League\HTMLToMarkdown\HtmlConverter;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -78,7 +80,32 @@ class Plugin {
 	 * @return  void
 	 */
 	public function initialize(): void {
+		// Add the source:markdown element to the RSS feed.
+		add_action( 'rss2_item', array( $this, 'add_source_markdown_element' ) );
+	}
 
+	// endregion
+
+	// region HOOKS
+
+	/**
+	 * Adds the <source:markdown> element to the RSS feed.
+	 *
+	 * @since   1.0.0
+	 * @version 1.0.0
+	 *
+	 * @return  void
+	 */
+	public function add_source_markdown_element(): void {
+		$content = get_the_content_feed();
+
+		$converter = new HtmlConverter(
+			array(
+				'strip_tags' => true
+			)
+		);
+
+		printf( '<source:markdown><![CDATA[%s]]></source:markdown>', $converter->convert( $content ) );
 	}
 
 	// endregion

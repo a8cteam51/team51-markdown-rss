@@ -12,19 +12,17 @@
  * @wordpress-plugin
  * Plugin Name:             Markdown RSS
  * Plugin URI:              https://wpspecialprojects.wordpress.com
- * Description:
+ * Description:             Adds the element source:markdown to the RSS feed.
  * Version:                 1.0.0
  * Requires at least:       6.2
  * Tested up to:            6.2
- * Requires PHP:            8.0
+ * Requires PHP:            7.2
  * Author:                  WordPress.com Special Projects
  * Author URI:              https://wpspecialprojects.wordpress.com
  * License:                 GPL v3 or later
  * License URI:             https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:             wpcomsp-markdown-rss
  * Domain Path:             /languages
- * WC requires at least:    7.4
- * WC tested up to:         7.4
  **/
 
 defined( 'ABSPATH' ) || exit;
@@ -54,7 +52,7 @@ if ( ! is_file( WPCOMSP_MARKDOWN_PATH . '/vendor/autoload.php' ) ) {
 	add_action(
 		'admin_notices',
 		static function () {
-			$message      = __( 'It seems like <strong>Markdown RSS</strong> is corrupted. Please reinstall!', 'wpcomsp-team51-markdown-rss' );
+			$message      = __( 'It seems like <strong>Markdown RSS</strong> is corrupted. Please reinstall!', 'wpcomsp-markdown-rss' );
 			$html_message = wp_sprintf( '<div class="error notice wpcomsp-team51-markdown-rss-error">%s</div>', wpautop( $message ) );
 			echo wp_kses_post( $html_message );
 		}

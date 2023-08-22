@@ -15,15 +15,3 @@ use WPCOMSpecialProjects\MarkdownRSS\Plugin;
 function wpcomsp_markdown_get_plugin_instance(): Plugin {
 	return Plugin::get_instance();
 }
-
-/**
- * Returns the plugin's slug.
- *
- * @since   1.0.0
- * @version 1.0.0
- *
- * @return  string
- */
-function wpcomsp_markdown_get_plugin_slug(): string {
-	return sanitize_key( WPCOMSP_MARKDOWN_METADATA['TextDomain'] );
-}

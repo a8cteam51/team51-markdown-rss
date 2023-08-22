@@ -28,7 +28,8 @@
   ],
   "require": {
     "php": ">=8.0",
-    "ext-json": "*"
+    "ext-json": "*",
+    "league/html-to-markdown": "^5.1"
   },
   "require-dev": {
     "a8cteam51/team51-configs": "dev-trunk",
