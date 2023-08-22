@@ -34,7 +34,6 @@
     "a8cteam51/team51-configs": "dev-trunk",
 
     "johnpbloch/wordpress-core": "6.2.*",
-    "wpackagist-plugin/woocommerce": "7.4.*",
 
     "wp-cli/i18n-command": "^2.4",
 
@@ -49,10 +48,7 @@
   "autoload": {
     "psr-4": {
       "WPCOMSpecialProjects\\MarkdownRSS\\": "src/"
-    },
-    "classmap": [
-      "models/"
-    ]
+    }
   },
   "autoload-dev": {
 
@@ -84,17 +80,6 @@
     "allow-plugins": {
       "composer/*": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
-    }
-  },
-
-  "extra": {
-    "installer-paths": {
-      "vendor/wpackagist-plugin/{$name}/": [
-        "type:wordpress-plugin"
-      ],
-      "vendor/wpackagist-theme/{$name}/": [
-        "type:wordpress-theme"
-      ]
     }
   }
 }

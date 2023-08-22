@@ -2,9 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-use WPcomSpecialProjects\Scaffold\Plugin;
-
-// region
+use WPCOMSpecialProjects\MarkdownRSS\Plugin;
 
 /**
  * Returns the plugin's main class instance.
@@ -29,12 +27,3 @@ function wpcomsp_markdown_get_plugin_instance(): Plugin {
 function wpcomsp_markdown_get_plugin_slug(): string {
 	return sanitize_key( WPCOMSP_MARKDOWN_METADATA['TextDomain'] );
 }
-
-// endregion
-
-//region OTHERS
-
-require WPCOMSP_MARKDOWN_PATH . 'includes/assets.php';
-require WPCOMSP_MARKDOWN_PATH . 'includes/settings.php';
-
-// endregion

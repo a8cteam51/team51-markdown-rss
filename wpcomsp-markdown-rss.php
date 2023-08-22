@@ -21,7 +21,7 @@
  * Author URI:              https://wpspecialprojects.wordpress.com
  * License:                 GPL v3 or later
  * License URI:             https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:             wpcomsp-team51-markdown-rss
+ * Text Domain:             wpcomsp-markdown-rss
  * Domain Path:             /languages
  * WC requires at least:    7.4
  * WC tested up to:         7.4
@@ -77,5 +77,5 @@ if ( $wpcomsp_markdown_requirements instanceof WP_Error ) {
 	);
 } else {
 	require_once WPCOMSP_MARKDOWN_PATH . 'functions.php';
-	add_action( 'plugins_loaded', array( wpcomsp_markdown_get_plugin_instance(), 'maybe_initialize' ) );
+	add_action( 'plugins_loaded', array( wpcomsp_markdown_get_plugin_instance(), 'initialize' ) );
 }
