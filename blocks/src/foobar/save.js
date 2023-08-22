@@ -27,7 +27,7 @@ export default function save() {
 		<p { ...useBlockProps.save() }>
 			{ __(
 				'Todo List – hello from the saved content from foobar!',
-				'wpcomsp-scaffold'
+				'wpcomsp-team51-markdown-rss'
 			) }
 		</p>
 	);

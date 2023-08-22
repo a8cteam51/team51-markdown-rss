@@ -1,6 +1,6 @@
 <?php
 
-namespace WPCOMSpecialProjects\Scaffold\Integrations;
+namespace WPCOMSpecialProjects\MarkdownRSS\Integrations;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace WPCOMSpecialProjects\Scaffold;
+namespace WPCOMSpecialProjects\MarkdownRSS;
 
-use WPCOMSpecialProjects\Scaffold\Integrations\WC_Subscriptions;
+use WPCOMSpecialProjects\MarkdownRSS\Integrations\WC_Subscriptions;
 
 defined( 'ABSPATH' ) || exit;
 
