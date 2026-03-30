@@ -82,6 +82,10 @@ class Plugin {
 	public function initialize(): void {
 		// Add the source:markdown element to the RSS feed.
 		add_action( 'rss2_item', array( $this, 'add_source_markdown_element' ) );
+
+		// Add source namespace to the RSS feed.
+		add_action( 'rss2_ns', array( $this, 'add_source_namespace' ) );
+
 	}
 
 	// endregion
@@ -97,15 +101,35 @@ class Plugin {
 	 * @return  void
 	 */
 	public function add_source_markdown_element(): void {
-		$content = get_the_content_feed();
+		$post = get_post();
 
-		$converter = new HtmlConverter(
-			array(
-				'strip_tags' => true,
-			)
-		);
+		if ( ! $post ) {
+			return;
+		}
 
-		printf( '<source:markdown><![CDATA[%s]]></source:markdown>', $converter->convert( $content ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		if ( ! empty( $post->post_content ) ) {
+			$content = apply_filters( 'the_content', $post->post_content ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		} else {
+			return;
+		}
+
+		$content   = str_replace( ']]>', ']]&gt;', $content );
+		$converter = new HtmlConverter( array( 'strip_tags' => true ) );
+
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Content is wrapped in CDATA with ]]> escaped.
+		echo "\t\t<source:markdown><![CDATA[" . $converter->convert( $content ) . "]]></source:markdown>\n";
+	}
+
+	/**
+	 * Output the XML namespace declaration to the feed
+	 *
+	 * @since   1.0.1
+	 * @version 1.0.1
+	 *
+	 * @return  void
+	 */
+	public function add_source_namespace(): void {
+		echo 'xmlns:source="https://source.scripting.com/"';
 	}
 
 	// endregion
