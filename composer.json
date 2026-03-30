@@ -1,29 +1,23 @@
 {
   "name": "a8cteam51/team51-markdown-rss",
   "type": "wordpress-plugin",
-
   "description": "",
   "homepage": "https://github.com/a8cteam51/team51-markdown-rss",
-  "license": "GPL-2.0-or-later",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
-      "name": "WordPress.com Special Projects Team",
-      "homepage": "https://wpspecialprojects.wordpress.com/"
+      "name": "Automattic Special Projects Team",
+      "homepage": "https://specialprojects.automattic.com/"
     },
     {
       "name": "Contributors",
       "homepage": "https://github.com/a8cteam51/team51-markdown-rss/graphs/contributors"
     }
   ],
-
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/a8cteam51/team51-configs"
-    },
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
     }
   ],
   "require": {
@@ -32,34 +26,22 @@
   },
   "require-dev": {
     "a8cteam51/team51-configs": "dev-trunk",
-
     "johnpbloch/wordpress-core": "6.2.*",
-
     "wp-cli/i18n-command": "^2.4",
-
     "squizlabs/php_codesniffer": "3.*",
     "dealerdirect/phpcodesniffer-composer-installer": "*",
     "phpcompatibility/phpcompatibility-wp": "*",
-    "wp-coding-standards/wpcs": "dev-develop",
-
     "roave/security-advisories": "dev-latest"
   },
-
   "autoload": {
     "psr-4": {
       "WPCOMSpecialProjects\\MarkdownRSS\\": "src/"
     }
   },
-  "autoload-dev": {
-
-  },
-
   "scripts": {
     "generate-autoloader": "@composer dump-autoload -o",
-
     "format:php": "phpcbf --standard=./.phpcs.xml --basepath=. . -v",
     "lint:php": "phpcs --standard=./.phpcs.xml --basepath=. . -v",
-
     "internationalize": [
       "@makepot",
       "@updatepo",
@@ -69,7 +51,6 @@
     "updatepo": "wp i18n update-po ./languages/wpcomsp-team51-markdown-rss.pot",
     "makejson": "wp i18n make-json ./languages --pretty-print --no-purge",
     "makemo": "wp i18n make-mo ./languages",
-
     "packages-install": "@composer install --ignore-platform-reqs --no-interaction",
     "packages-update": [
       "@composer clear-cache",
@@ -79,7 +60,8 @@
   "config": {
     "allow-plugins": {
       "composer/*": true,
-      "dealerdirect/phpcodesniffer-composer-installer": true
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "phpstan/extension-installer": true
     }
   }
 }
