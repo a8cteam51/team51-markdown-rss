@@ -85,7 +85,6 @@ class Plugin {
 
 		// Add source namespace to the RSS feed.
 		add_action( 'rss2_ns', array( $this, 'add_source_namespace' ) );
-
 	}
 
 	// endregion
