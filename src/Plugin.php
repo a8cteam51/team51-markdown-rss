@@ -83,8 +83,14 @@ class Plugin {
 		// Add the source:markdown element to the RSS feed.
 		add_action( 'rss2_item', array( $this, 'add_source_markdown_element' ) );
 
+		// Add the source:markdown element to the comments RSS feed.
+		add_action( 'commentrss2_item', array( $this, 'add_comment_source_markdown_element' ) );
+
 		// Add source namespace to the RSS feed.
 		add_action( 'rss2_ns', array( $this, 'add_source_namespace' ) );
+
+		// Add source namespace to the comments RSS feed.
+		add_action( 'rss2_comments_ns', array( $this, 'add_source_namespace' ) );
 	}
 
 	// endregion
@@ -111,6 +117,30 @@ class Plugin {
 		} else {
 			return;
 		}
+
+		$content   = str_replace( ']]>', ']]&gt;', $content );
+		$converter = new HtmlConverter( array( 'strip_tags' => true ) );
+
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Content is wrapped in CDATA with ]]> escaped.
+		echo "\t\t<source:markdown><![CDATA[" . $converter->convert( $content ) . "]]></source:markdown>\n";
+	}
+
+	/**
+	 * Adds the <source:markdown> element to the comments RSS feed.
+	 *
+	 * @since   1.0.1
+	 * @version 1.0.1
+	 *
+	 * @return  void
+	 */
+	public function add_comment_source_markdown_element(): void {
+		$comment = get_comment();
+
+		if ( ! $comment || empty( $comment->comment_content ) ) {
+			return;
+		}
+
+		$content = apply_filters( 'comment_text', $comment->comment_content, $comment, array() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		$content   = str_replace( ']]>', ']]&gt;', $content );
 		$converter = new HtmlConverter( array( 'strip_tags' => true ) );
